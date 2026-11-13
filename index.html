@@ -1158,24 +1158,28 @@
               <span>01 / 05</span>
             </div>
 
-            <div id="hero-video-preview-box" onclick="handleHeroVideoClick()" class="media-frame cursor-pointer group relative aspect-video bg-[var(--bg-media)] p-4 sm:p-5 flex flex-col justify-between">
-              <img id="hero-featured-thumb" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="The BETTER AI Mod?! (Minecraft ChatGPT vs. Gemini)" class="hidden absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-              
-              <div class="relative z-10 flex justify-between items-center">
-                <span id="hero-featured-badge" class="px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold bg-[var(--bg-card)] text-[var(--text-primary)] border border-[var(--border-subtle)]">NEW VIDEO</span>
-                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-[var(--bg-card)] text-[var(--text-primary)] border border-[var(--border-subtle)]">08:33</span>
-              </div>
-
-              <div class="relative z-10 my-auto flex flex-col items-center justify-center text-center">
-                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[var(--bg-card)] text-[var(--text-primary)] border border-[var(--border-subtle)] flex items-center justify-center shadow-md transition-transform group-hover:scale-105">
-                  <svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <div id="hero-video-preview-box" class="media-frame group relative aspect-video bg-[var(--bg-media)] overflow-hidden">
+              <iframe id="hero-video-iframe" class="hidden w-full h-full border-0"
+                title="The BETTER AI Mod?! (Minecraft ChatGPT vs. Gemini)"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+              <div id="hero-video-fallback" class="absolute inset-0 w-full h-full p-4 sm:p-5 flex flex-col justify-between cursor-pointer" onclick="handleHeroVideoClick()">
+                <div class="relative z-10 flex justify-between items-center">
+                  <span id="hero-featured-badge" class="px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold bg-[var(--bg-card)] text-[var(--text-primary)] border border-[var(--border-subtle)]">NEW VIDEO</span>
+                  <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-[var(--bg-card)] text-[var(--text-primary)] border border-[var(--border-subtle)]">08:33</span>
                 </div>
-                <span id="hero-consent-hint" class="hidden mt-2 text-[11px] font-mono text-[var(--text-primary)] bg-[var(--bg-card)] border border-[var(--border-subtle)] px-3 py-0.5 rounded-full" data-i18n="hero_consent_hint">Enable media & play</span>
-              </div>
-
-              <div class="relative z-10 flex items-center justify-between gap-2 bg-[var(--bg-card)]/90 backdrop-blur-md px-3.5 py-2 rounded-xl border border-[var(--border-subtle)]">
-                <span id="hero-featured-title" class="text-xs font-semibold truncate">The BETTER AI Mod?! (ChatGPT vs. Gemini)</span>
-                <span class="text-xs font-mono shrink-0" data-i18n="watch_arrow">Watch ↗</span>
+                <div class="relative z-10 my-auto flex flex-col items-center justify-center text-center">
+                  <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[var(--bg-card)] text-[var(--text-primary)] border border-[var(--border-subtle)] flex items-center justify-center shadow-md">
+                    <svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  </div>
+                  <span id="hero-consent-hint" class="mt-2 text-[11px] font-mono text-[var(--text-primary)] bg-[var(--bg-card)] border border-[var(--border-subtle)] px-3 py-0.5 rounded-full" data-i18n="hero_consent_hint">Enable media &amp; play</span>
+                </div>
+                <div class="relative z-10 flex items-center justify-between gap-2 bg-[var(--bg-card)]/90 backdrop-blur-md px-3.5 py-2 rounded-xl border border-[var(--border-subtle)]">
+                  <span id="hero-featured-title" class="text-xs font-semibold truncate">The BETTER AI Mod?! (ChatGPT vs. Gemini)</span>
+                  <span class="text-xs font-mono shrink-0" data-i18n="watch_arrow">Watch ↗</span>
+                </div>
               </div>
             </div>
           </div>
@@ -2738,15 +2742,18 @@
         }
       }
 
-      const heroThumb = document.getElementById('hero-featured-thumb');
+      const heroIframe = document.getElementById('hero-video-iframe');
+      const heroFallback = document.getElementById('hero-video-fallback');
       const heroHint = document.getElementById('hero-consent-hint');
-      if (heroThumb) {
-        if (consent && (fv.customThumbnail || fv.youtubeId)) {
-          heroThumb.src = fv.customThumbnail || `https://i.ytimg.com/vi/${fv.youtubeId}/maxresdefault.jpg`;
-          heroThumb.classList.remove('hidden');
+      if (heroIframe && heroFallback) {
+        if (consent && fv.youtubeId) {
+          heroIframe.src = `https://www.youtube-nocookie.com/embed/${fv.youtubeId}?rel=0`;
+          heroIframe.classList.remove('hidden');
+          heroFallback.classList.add('hidden');
         } else {
-          heroThumb.src = EMPTY_PIXEL;
-          heroThumb.classList.add('hidden');
+          heroIframe.removeAttribute('src');
+          heroIframe.classList.add('hidden');
+          heroFallback.classList.remove('hidden');
         }
       }
       if (heroHint) {
@@ -2777,21 +2784,15 @@
       const vTitle = isEn ? (fv.titleEn || fv.title) : fv.title;
 
       if (consent) {
-        const thumbUrl = fv.customThumbnail || `https://i.ytimg.com/vi/${fv.youtubeId}/maxresdefault.jpg`;
         stage.innerHTML = `
-          <img src="${thumbUrl}" alt="${vTitle}" class="absolute inset-0 w-full h-full object-cover opacity-85 pointer-events-none">
-          <div class="relative z-10 max-w-md bg-[var(--bg-card)]/90 backdrop-blur-md p-5 sm:p-6 rounded-2xl border border-[var(--border-subtle)] shadow-lg">
-            <span class="studio-tag block mb-1">${getLangText('stage_highlight_tag')}</span>
-            <h3 class="text-sm sm:text-lg font-bold text-[var(--text-primary)] mb-4">${vTitle}</h3>
-            <div class="flex flex-wrap items-center justify-center gap-2.5">
-              <button onclick="activatePrivacyVideo('featured-video-stage')" class="btn-apple-primary text-xs py-2.5 px-5">
-                ${getLangText('stage_start_player')}
-              </button>
-              <a href="https://www.youtube.com/watch?v=${fv.youtubeId}" target="_blank" rel="noopener noreferrer" class="btn-apple-secondary text-xs py-2.5 px-4">
-                YouTube ↗
-              </a>
-            </div>
-          </div>
+          <iframe 
+            class="w-full h-full border-0"
+            src="https://www.youtube-nocookie.com/embed/${fv.youtubeId}?rel=0" 
+            title="${vTitle}"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
         `;
       } else {
         stage.innerHTML = `
@@ -2821,34 +2822,33 @@
       const ttVideos = TEDLY_CONFIG.videos.filter(v => v.platform === 'tiktok');
 
       ytGrid.innerHTML = ytVideos.map((v, idx) => {
-        const thumbUrl = v.customThumbnail || (v.youtubeId ? `https://i.ytimg.com/vi/${v.youtubeId}/maxresdefault.jpg` : '');
         const displayTitle = isEn ? (v.titleEn || v.title) : v.title;
         const displayBadge = isEn ? (v.badgeEn || v.badge) : v.badge;
         const displaySub = isEn ? (v.subtitleEn || v.subtitle) : v.subtitle;
-        const safeTitle = displayTitle.replace(/'/g, "\\'");
         const videoId = v.youtubeId || '';
         const num = String(idx + 1).padStart(2, '0');
 
         return `
-          <article class="group cursor-pointer" data-category="${v.category}" onclick="openVideoModal('${safeTitle}', '${videoId}', 'youtube', '')">
+          <article class="group" data-category="${v.category}">
             <div class="flex items-center justify-between text-xs font-mono text-[var(--text-secondary)] mb-2">
               <span>${num} · ${displayBadge}</span>
-              <span>YouTube 16:9 ↗</span>
+              <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" rel="noopener noreferrer" class="hover:underline">YouTube ↗</a>
             </div>
             <div class="media-frame relative aspect-video bg-[var(--bg-media)]">
-              ${thumbUrl ? `<img src="${thumbUrl}" alt="${displayTitle}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">` : ''}
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-14 h-14 rounded-full bg-[var(--bg-card)]/90 text-[var(--text-primary)] border border-[var(--border-subtle)] flex items-center justify-center shadow-lg transition-transform group-hover:scale-105">
-                  <svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                </div>
-              </div>
+              <iframe 
+                class="w-full h-full border-0"
+                src="https://www.youtube-nocookie.com/embed/${videoId}?rel=0" 
+                title="${displayTitle}"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+              </iframe>
             </div>
             <div class="pt-3.5 flex items-start justify-between gap-4">
               <div>
                 <h3 class="font-semibold text-base leading-snug">${displayTitle}</h3>
                 <p class="text-xs text-[var(--text-secondary)] mt-0.5">${displaySub || '@Tedlylab'}</p>
               </div>
-              <span class="editorial-arrow shrink-0">↗</span>
             </div>
           </article>
         `;
@@ -2858,7 +2858,6 @@
         const displayTitle = isEn ? (v.titleEn || v.title) : v.title;
         const displayBadge = isEn ? (v.badgeEn || v.badge) : v.badge;
         const displaySub = isEn ? (v.subtitleEn || v.subtitle) : v.subtitle;
-        const safeTitle = displayTitle.replace(/'/g, "\\'");
         const videoId = v.tiktokId || '';
         const extUrl = v.externalUrl || '';
         const num = String(idx + 1).padStart(2, '0');
@@ -2869,33 +2868,20 @@
               <span>${num} · ${displayBadge}</span>
               <span>TikTok 9:16</span>
             </div>
-            <div id="tiktok-inline-stage-${videoId}" class="media-frame relative aspect-[9/16] max-h-[460px] w-full bg-[var(--bg-media)] cursor-pointer p-5 flex flex-col justify-between" onclick="playInlineTikTok('${videoId}', '${safeTitle}', '${extUrl}')">
-              <img id="tiktok-thumb-${videoId}" src="${v.customThumbnail || EMPTY_PIXEL}" alt="${displayTitle}" class="${v.customThumbnail ? '' : 'hidden'} absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-
-              <div class="relative z-10 flex justify-between items-center">
-                <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold bg-[var(--bg-card)] text-[var(--text-primary)] border border-[var(--border-subtle)]">${displayBadge}</span>
-              </div>
-
-              <div class="relative z-10 my-auto flex flex-col items-center justify-center text-center">
-                <div class="w-14 h-14 rounded-full bg-[var(--bg-card)]/90 text-[var(--text-primary)] border border-[var(--border-subtle)] flex items-center justify-center shadow-lg transition-transform group-hover:scale-105">
-                  <svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                </div>
-                <span class="mt-2.5 px-3 py-1 rounded-full text-[11px] font-mono bg-[var(--bg-card)]/90 text-[var(--text-primary)] border border-[var(--border-subtle)]">
-                  ${getLangText('tt_start_preview')}
-                </span>
-              </div>
-
-              <div class="relative z-10 bg-[var(--bg-card)]/90 backdrop-blur-md p-3 rounded-xl border border-[var(--border-subtle)] text-left">
-                <p class="text-[10px] font-mono text-[var(--text-secondary)]">${displaySub || '@tedlyyyyy'}</p>
-                <h3 class="font-semibold text-xs sm:text-sm leading-snug mt-0.5">${displayTitle}</h3>
-              </div>
+            <div class="media-frame relative aspect-[9/16] max-h-[460px] w-full bg-[var(--bg-media)] overflow-hidden">
+              <iframe 
+                class="w-full h-full border-0 bg-[var(--bg-media)]"
+                src="https://www.tiktok.com/embed/v2/${videoId}" 
+                title="${displayTitle}"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="encrypted-media; fullscreen" 
+                allowfullscreen>
+              </iframe>
             </div>
 
             <div class="pt-3 flex items-center justify-between gap-2 text-xs font-mono">
-              <button type="button" onclick="openVideoModal('${safeTitle}', '${videoId}', 'tiktok', '${extUrl}')" class="hover:underline">
-                ${getLangText('tt_large_player')}
-              </button>
-              <a href="${extUrl}" target="_blank" rel="noopener noreferrer" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)]">
+              <h3 class="font-semibold text-xs sm:text-sm leading-snug">${displayTitle}</h3>
+              <a href="${extUrl}" target="_blank" rel="noopener noreferrer" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] shrink-0">
                 TikTok ↗
               </a>
             </div>
