@@ -1137,7 +1137,7 @@
             </h1>
 
             <p class="text-base sm:text-lg text-[var(--text-secondary)] max-w-md mb-8 reveal" data-i18n="hero_desc">
-              See before you read: Elaborate YouTube projects, AI battles in Minecraft, setup insights, and creative short-form videos.
+              Minecraft AI experiments, creative tech videos, and new ideas — produced, edited, and uploaded by one creator.
             </p>
 
             <div class="flex flex-wrap items-center gap-3 reveal">
@@ -1209,11 +1209,11 @@
       <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
         <div class="grid md:grid-cols-12 gap-8 mb-12 items-end">
           <div class="md:col-span-7">
-            <p class="studio-tag mb-2" data-i18n="sec2_tag">(02 — Selected Videos & Clips)</p>
-            <h2 class="display-section" data-i18n="sec2_title">See before you read.</h2>
+            <p class="studio-tag mb-2" data-i18n="sec2_tag">(02 — Featured Videos & Projects)</p>
+            <h2 class="display-section" data-i18n="sec2_title">Featured YouTube Videos.</h2>
           </div>
           <div class="md:col-span-5 text-sm text-[var(--text-secondary)] flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <p data-i18n="sec2_sub">Five recent releases and channels from the TedlyLab universe.</p>
+            <p data-i18n="sec2_sub">Selected projects, experiments, and videos from the TedlyLab channel.</p>
             <span class="font-mono text-xs shrink-0">01 / 05</span>
           </div>
         </div>
@@ -1352,27 +1352,22 @@
     </section>
 
     <!-- ========================================================================
-         SEITE 2: VIDEOS — Getrennt nach YouTube (16:9) & TikTok Shorts (9:16)
+         SEITE 2: VIDEOS — YouTube Hauptvideos (16:9)
          ======================================================================== -->
     <section id="page-videos" class="page-view" aria-labelledby="videos-headline">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
         
         <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-10 border-b border-[var(--border-subtle)] text-xs font-mono text-[var(--text-secondary)]">
-          <span data-i18n="vid_meta_left">(02 — Video Archive & Shorts)</span>
-          <span data-i18n="vid_meta_right">16:9 Widescreen · 9:16 Vertical</span>
+          <span data-i18n="vid_meta_left">(02 — YouTube Videos)</span>
+          <span data-i18n="vid_meta_right">16:9 Widescreen</span>
         </div>
 
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <p class="spaced-studio-line mb-3" data-i18n="vid_spaced">A L L &nbsp; P R O J E C T S</p>
-            <h1 id="videos-headline" class="display-section" data-i18n="vid_title">Videos &amp; Shorts.</h1>
+            <p class="spaced-studio-line mb-3" data-i18n="vid_spaced">Y O U T U B E &nbsp; V I D E O S</p>
+            <h1 id="videos-headline" class="display-section" data-i18n="vid_title">YouTube Videos.</h1>
           </div>
 
-          <div class="flex flex-wrap items-center gap-1.5 p-1 rounded-full bg-[var(--bg-secondary)] border border-[var(--border-subtle)] w-fit" role="tablist">
-            <button onclick="filterVideos('all')" data-filter="all" class="video-filter-btn px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[var(--bg-card)] shadow-sm transition" data-i18n="vid_filter_all">All (05)</button>
-            <button onclick="filterVideos('youtube')" data-filter="youtube" class="video-filter-btn px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">YouTube 16:9 (02)</button>
-            <button onclick="filterVideos('shorts')" data-filter="shorts" class="video-filter-btn px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">TikTok 9:16 (03)</button>
-          </div>
         </div>
 
         <!-- FALL A: Medien noch abgelehnt -->
@@ -1391,18 +1386,10 @@
         <div id="videos-accepted-content" class="space-y-16">
           <div id="youtube-section-block">
             <div class="flex items-center justify-between pb-4 mb-6 border-b border-[var(--border-subtle)]">
-              <span class="studio-tag" data-i18n="vid_yt_sec_tag">(01 — YouTube Main Videos · 16:9)</span>
+              <span class="studio-tag" data-i18n="vid_yt_sec_tag">(Selected YouTube Videos · 16:9)</span>
               <a href="https://www.youtube.com/@Tedlylab" target="_blank" rel="noopener noreferrer" class="text-xs font-mono hover:underline" data-i18n="vid_open_yt">Open @Tedlylab ↗</a>
             </div>
             <div id="youtube-video-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
-          </div>
-
-          <div id="tiktok-section-block">
-            <div class="flex items-center justify-between pb-4 mb-6 border-b border-[var(--border-subtle)]">
-              <span class="studio-tag" data-i18n="vid_tt_sec_tag">(02 — TikTok Shorts &amp; Setup Clips · 9:16)</span>
-              <a href="https://www.tiktok.com/@tedlyyyyy" target="_blank" rel="noopener noreferrer" class="text-xs font-mono hover:underline" data-i18n="vid_open_tt">Open @tedlyyyyy ↗</a>
-            </div>
-            <div id="tiktok-video-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
           </div>
         </div>
 
@@ -1410,11 +1397,10 @@
         <div class="mt-16 pt-8 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <span class="studio-tag" data-i18n="vid_more_tag">(More Content)</span>
-            <h2 class="font-semibold text-lg mt-1" data-i18n="vid_more_title">Even more videos on YouTube &amp; clips on TikTok.</h2>
+            <h2 class="font-semibold text-lg mt-1" data-i18n="vid_more_title">Even more videos on YouTube.</h2>
           </div>
           <div class="flex flex-wrap gap-2.5">
             <a href="https://www.youtube.com/@Tedlylab" target="_blank" rel="noopener noreferrer" class="btn-apple-primary text-xs py-2 px-4">YouTube (@Tedlylab) ↗</a>
-            <a href="https://www.tiktok.com/@tedlyyyyy" target="_blank" rel="noopener noreferrer" class="btn-apple-secondary text-xs py-2 px-4">TikTok (@tedlyyyyy) ↗</a>
           </div>
         </div>
 
@@ -1974,43 +1960,6 @@
           </div>
 
           <div class="space-y-2">
-            <h2 class="font-bold text-lg">4. Local Storage in Your Browser (Art. 45c Swiss TCA)</h2>
-            <p class="text-[var(--text-secondary)] leading-relaxed">
-              This website does not use advertising or tracking cookies. We use your browser's local storage (<code>localStorage</code>) exclusively for three user-selected preferences:<br>
-              • <code>tedlylab-theme</code>: Stores your choice between light and dark mode.<br>
-              • <code>tedlylab-lang</code>: Stores your selected language preference (English or German).<br>
-              • <code>tedlylab-media-consent-v2</code>: Stores your decision from the media consent dialog (Accepted or Declined) so you are not prompted again on every page navigation.<br>
-              These entries remain purely local on your device, contain no personal identifiers, and are not transmitted to our server.
-            </p>
-          </div>
-
-          <div class="space-y-2">
-            <h2 class="font-bold text-lg">3. Hosting bei Hostpoint AG, 3D-Darstellung & Server-Logfiles</h2>
-            <p class="text-[var(--text-secondary)] leading-relaxed">
-              Diese Website wird bei der <strong>Hostpoint AG</strong>, Neue Jonastrasse 60, 8640 Rapperswil-Jona, Schweiz (<a href="https://www.hostpoint.ch" target="_blank" rel="noopener noreferrer" class="underline">www.hostpoint.ch</a>) gehostet. Die Server befinden sich in der Schweiz.<br><br>
-              Beim Aufruf dieser Website erfasst der Webserver von Hostpoint automatisch allgemeine technische Zugriffsdaten in sogenannten Server-Logfiles (z. B. aufgerufene Seite, Datum und Uhrzeit des Abrufs, verwendeter Browser, Betriebssystem, Referrer-URL sowie technisch notwendige Netzwerk- und Verbindungsdaten). Zur Darstellung des interaktiven 3D-Hintergrundmodells im Browser wird zudem die WebGL-Bibliothek <code>three.min.js</code> über das Content Delivery Network <code>cdnjs.cloudflare.com</code> (Cloudflare, Inc., USA, zertifiziert unter dem Swiss-U.S. Data Privacy Framework) bezogen. Diese Bearbeitung ist technisch erforderlich, um die Website samt 3D-Darstellung auszuliefern, die Systemsicherheit zu gewährleisten und allfällige Störungen oder Missbräuche abzuwehren (überwiegendes berechtigtes Interesse gemäss Art. 31 Abs. 1 DSG bzw. Art. 6 Abs. 1 lit. f DSGVO).
-            </p>
-          </div>
-
-          <div class="space-y-2">
-            <h2 class="font-bold text-lg">4. Lokale Speicherung im Browser (Art. 45c FMG)</h2>
-            <p class="text-[var(--text-secondary)] leading-relaxed">
-              Diese Website setzt keine Werbe- oder Tracking-Cookies ein. Wir nutzen den lokalen Speicher deines Browsers (<code>localStorage</code>) ausschliesslich für drei von dir selbst gewählte Einstellungen:<br>
-              • <code>tedlylab-theme</code>: Speichert deine Auswahl zwischen hellem und dunklem Design.<br>
-              • <code>tedlylab-lang</code>: Speichert deine gewählte Spracheinstellung (Englisch oder Deutsch).<br>
-              • <code>tedlylab-media-consent-v2</code>: Speichert deine Entscheidung aus dem Medien-Dialog (Akzeptiert oder Abgelehnt), damit du nicht bei jedem Seitenwechsel erneut gefragt wirst.<br>
-              Diese Einträge verbleiben rein lokal auf deinem Endgerät, enthalten keine personenbezogenen Identifikatoren und werden nicht an unseren Server übertragen.
-            </p>
-          </div>
-
-          <div class="space-y-2">
-            <h2 class="font-bold text-lg">5. Kontaktformular, E-Mail-Anfragen & Aufbewahrungsdauer</h2>
-            <p class="text-[var(--text-secondary)] leading-relaxed">
-              Wenn du uns per E-Mail (<code>business.tedly@hotmail.com</code>) oder über das Kontaktformular kontaktierst, werden deine Angaben (Name, E-Mail-Adresse, Betreff und Nachricht) ausschliesslich zur Bearbeitung deiner Anfrage und für den Fall von Anschlussfragen bearbeitet (Art. 31 Abs. 2 lit. a DSG / vorvertragliche Massnahmen bzw. Einwilligung). Das Kontaktformular bereitet die Nachricht lokal in deinem Browser für dein eigenes E-Mail-Programm vor (<code>mailto</code>-Funktion). Das Empfänger-Postfach wird über den Dienst Outlook / Hotmail (Microsoft Ireland Operations Limited / Microsoft Corporation, USA) betrieben. Wir löschen deine Anfrage, sobald sie abschliessend erledigt ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
-            </p>
-          </div>
-
-          <div class="space-y-2">
             <h2 class="font-bold text-lg">6. Eingebettete YouTube- und TikTok-Medien (Einwilligungs-Lösung)</h2>
             <p class="text-[var(--text-secondary)] leading-relaxed">
               Beim Öffnen der Website wirst du über ein Auswahl-Fenster gefragt, ob externe Medien von <strong>YouTube</strong> (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland / Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA) und <strong>TikTok</strong> (TikTok Technology Limited, 10 Earlsfort Terrace, Dublin, D02 T380, Irland / TikTok Information Technologies UK Limited, London) geladen werden dürfen:<br><br>
@@ -2044,7 +1993,7 @@
           </div>
 
           <div class="pt-4 border-t border-[var(--border-subtle)] text-xs text-[var(--text-secondary)]">
-            Stand dieser Datenschutzerklärung: Oktober 2026
+            Stand dieser Datenschutzerklärung: November 2026
           </div>
         </div>
 
@@ -2189,7 +2138,7 @@
         hero_meta_center: "YouTube · TikTok · Community",
         hero_line2: "Videos, Shorts",
         hero_line3: "& Experiments.",
-        hero_desc: "See before you read: Elaborate YouTube projects, AI battles in Minecraft, setup insights, and creative short-form videos.",
+        hero_desc: "Minecraft AI experiments, creative tech videos, and new ideas — produced, edited, and uploaded by one creator.",
         hero_btn_projects: "Explore Projects & Videos",
         hero_btn_sub: "Subscribe to @Tedlylab ↗",
         hero_highlight_tag: "(Featured Highlight)",
@@ -2199,9 +2148,9 @@
         marquee_ai: "Minecraft AI Experiments",
         marquee_tt: "@tedlyyyyy on TikTok",
         marquee_shorts: "Shorts & Projects",
-        sec2_tag: "(02 — Selected Videos & Clips)",
-        sec2_title: "See before you read.",
-        sec2_sub: "Five recent releases and channels from the TedlyLab universe.",
+        sec2_tag: "(02 — Featured Videos & Projects)",
+        sec2_title: "Featured YouTube Videos.",
+        sec2_sub: "Selected projects, experiments, and videos from the TedlyLab channel.",
         row1_title: "The BETTER AI Mod?! (Minecraft ChatGPT vs. Gemini)",
         row1_sub: "YouTube Main Video · 08:33 min · AI Experiment",
         row2_title: "Which AI Builds the BETTER Minecraft Texture Pack? (ChatGPT vs. Claude)",
@@ -2234,21 +2183,21 @@
         sec4_tag: "(04 — Direct Player)",
         sec4_title: "Watch right here.",
         sec4_btn: "Open all 5 videos →",
-        vid_meta_left: "(02 — Video Archive & Shorts)",
-        vid_meta_right: "16:9 Widescreen · 9:16 Vertical",
-        vid_spaced: "A L L   P R O J E C T S",
-        vid_title: "Videos & Shorts.",
-        vid_filter_all: "All (05)",
+        vid_meta_left: "(02 — YouTube Videos)",
+        vid_meta_right: "16:9 Widescreen",
+        vid_spaced: "Y O U T U B E   V I D E O S",
+        vid_title: "YouTube Videos.",
+        vid_filter_all: "All Videos",
         privacy_mode_tag: "(Privacy Mode Active)",
         vid_declined_title: "External videos are currently hidden",
-        vid_declined_desc: "Accept external media to watch the YouTube videos and TikTok Shorts directly with thumbnails.",
+        vid_declined_desc: "Accept external media to watch the YouTube videos directly with thumbnails.",
         vid_declined_btn: "Enable external media now",
-        vid_yt_sec_tag: "(01 — YouTube Main Videos · 16:9)",
+        vid_yt_sec_tag: "(Selected YouTube Videos · 16:9)",
         vid_open_yt: "Open @Tedlylab ↗",
-        vid_tt_sec_tag: "(02 — TikTok Shorts & Setup Clips · 9:16)",
-        vid_open_tt: "Open @tedlyyyyy ↗",
+        vid_tt_sec_tag: "",
+        vid_open_tt: "",
         vid_more_tag: "(More Content)",
-        vid_more_title: "Even more videos on YouTube & clips on TikTok.",
+        vid_more_title: "Even more videos on YouTube.",
         about_meta_left: "(03 — About the Channel & Creator)",
         about_meta_right: "One creator from the first idea to the final upload",
         about_main_headline: "One creator, one signature style — from the first prompt to the final cut.",
@@ -2346,7 +2295,7 @@
         hero_meta_center: "YouTube · TikTok · Community",
         hero_line2: "Videos, Shorts",
         hero_line3: "& Experimente.",
-        hero_desc: "Sehen, bevor man liest: Aufwändige YouTube-Projekte, KI-Duelle in Minecraft, Setup-Einblicke und kreative Kurzvideos.",
+        hero_desc: "Minecraft-KI-Experimente, kreative Tech-Videos und neue Ideen — produziert, geschnitten und hochgeladen von einem Creator.",
         hero_btn_projects: "Projekte & Videos ansehen",
         hero_btn_sub: "@Tedlylab abonnieren ↗",
         hero_highlight_tag: "(Aktuelles Highlight)",
@@ -2356,9 +2305,9 @@
         marquee_ai: "Minecraft KI-Experimente",
         marquee_tt: "@tedlyyyyy auf TikTok",
         marquee_shorts: "Shorts & Projekte",
-        sec2_tag: "(02 — Ausgewählte Videos & Clips)",
-        sec2_title: "Sehen, bevor man liest.",
-        sec2_sub: "Fünf aktuelle Veröffentlichungen und Kanäle aus dem TedlyLab-Kosmos.",
+        sec2_tag: "(02 — YouTube-Highlights & Projekte)",
+        sec2_title: "Aktuelle YouTube-Videos.",
+        sec2_sub: "Ausgewählte Projekte, Experimente und Videos aus dem TedlyLab-Kanal.",
         row1_title: "Die BESSERE KI-Mod?! (Minecraft ChatGPT vs. Gemini)",
         row1_sub: "YouTube Hauptvideo · 08:33 Min · KI-Experiment",
         row2_title: "Welche KI baut das BESSERE Minecraft Texture Pack? (ChatGPT vs. Claude)",
@@ -2391,21 +2340,21 @@
         sec4_tag: "(04 — Direkt-Player)",
         sec4_title: "Direkt reinschauen.",
         sec4_btn: "Alle 5 Videos öffnen →",
-        vid_meta_left: "(02 — Video-Archiv & Shorts)",
-        vid_meta_right: "16:9 Widescreen · 9:16 Hochformat",
-        vid_spaced: "A L L E   P R O J E K T E",
-        vid_title: "Videos & Shorts.",
-        vid_filter_all: "Alle (05)",
+        vid_meta_left: "(02 — YouTube-Videos)",
+        vid_meta_right: "16:9 Widescreen",
+        vid_spaced: "Y O U T U B E   V I D E O S",
+        vid_title: "YouTube-Videos.",
+        vid_filter_all: "Alle Videos",
         privacy_mode_tag: "(Datenschutz-Modus aktiv)",
         vid_declined_title: "Externe Videos sind aktuell ausgeblendet",
-        vid_declined_desc: "Akzeptiere externe Medien, um die YouTube-Videos und TikTok-Shorts direkt mit Vorschaubildern anzusehen.",
+        vid_declined_desc: "Akzeptiere externe Medien, um die YouTube-Videos direkt mit Vorschaubildern anzusehen.",
         vid_declined_btn: "Externe Medien jetzt aktivieren",
-        vid_yt_sec_tag: "(01 — YouTube Hauptvideos · 16:9)",
+        vid_yt_sec_tag: "(Ausgewählte YouTube-Videos · 16:9)",
         vid_open_yt: "@Tedlylab öffnen ↗",
-        vid_tt_sec_tag: "(02 — TikTok Shorts & Setup-Clips · 9:16)",
-        vid_open_tt: "@tedlyyyyy öffnen ↗",
+        vid_tt_sec_tag: "",
+        vid_open_tt: "",
         vid_more_tag: "(Mehr Content)",
-        vid_more_title: "Noch mehr Videos auf YouTube & Clips auf TikTok.",
+        vid_more_title: "Noch mehr Videos auf YouTube.",
         about_meta_left: "(03 — Über den Kanal & Creator)",
         about_meta_right: "Ein Ansprechpartner von der Idee bis zum Upload",
         about_main_headline: "Ein Creator, eine Handschrift — vom ersten Prompt bis zum fertigen Schnitt.",
@@ -2814,8 +2763,7 @@
 
     function renderVideoGrid() {
       const ytGrid = document.getElementById('youtube-video-grid');
-      const ttGrid = document.getElementById('tiktok-video-grid');
-      if (!ytGrid || !ttGrid) return;
+      if (!ytGrid) return;
       const isEn = currentLang === 'en';
 
       const ytVideos = TEDLY_CONFIG.videos.filter(v => (v.platform || 'youtube') === 'youtube');
@@ -2854,42 +2802,45 @@
         `;
       }).join('');
 
-      ttGrid.innerHTML = ttVideos.map((v, idx) => {
-        const displayTitle = isEn ? (v.titleEn || v.title) : v.title;
-        const displayBadge = isEn ? (v.badgeEn || v.badge) : v.badge;
-        const displaySub = isEn ? (v.subtitleEn || v.subtitle) : v.subtitle;
-        const videoId = v.tiktokId || '';
-        const extUrl = v.externalUrl || '';
-        const num = String(idx + 1).padStart(2, '0');
+      const ttGrid = document.getElementById('tiktok-video-grid');
+      if (ttGrid) {
+        ttGrid.innerHTML = ttVideos.map((v, idx) => {
+          const displayTitle = isEn ? (v.titleEn || v.title) : v.title;
+          const displayBadge = isEn ? (v.badgeEn || v.badge) : v.badge;
+          const displaySub = isEn ? (v.subtitleEn || v.subtitle) : v.subtitle;
+          const videoId = v.tiktokId || '';
+          const extUrl = v.externalUrl || '';
+          const num = String(idx + 1).padStart(2, '0');
 
-        return `
-          <article class="group flex flex-col justify-between" data-category="${v.category}">
-            <div class="flex items-center justify-between text-xs font-mono text-[var(--text-secondary)] mb-2">
-              <span>${num} · ${displayBadge}</span>
-              <span>TikTok 9:16</span>
-            </div>
-            <div class="media-frame relative aspect-[9/16] max-h-[460px] w-full bg-[var(--bg-media)] overflow-hidden">
-              <iframe 
-                class="w-full h-full border-0 bg-[var(--bg-media)]"
-                src="https://www.tiktok.com/embed/v2/${videoId}" 
-                title="${displayTitle}"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allow="encrypted-media; fullscreen" 
-                allowfullscreen>
-              </iframe>
-            </div>
+          return `
+            <article class="group flex flex-col justify-between" data-category="${v.category}">
+              <div class="flex items-center justify-between text-xs font-mono text-[var(--text-secondary)] mb-2">
+                <span>${num} · ${displayBadge}</span>
+                <span>TikTok 9:16</span>
+              </div>
+              <div class="media-frame relative aspect-[9/16] max-h-[460px] w-full bg-[var(--bg-media)] overflow-hidden">
+                <iframe 
+                  class="w-full h-full border-0 bg-[var(--bg-media)]"
+                  src="https://www.tiktok.com/embed/v2/${videoId}" 
+                  title="${displayTitle}"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allow="encrypted-media; fullscreen" 
+                  allowfullscreen>
+                </iframe>
+              </div>
 
-            <div class="pt-3 flex items-center justify-between gap-2 text-xs font-mono">
-              <h3 class="font-semibold text-xs sm:text-sm leading-snug">${displayTitle}</h3>
-              <a href="${extUrl}" target="_blank" rel="noopener noreferrer" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] shrink-0">
-                TikTok ↗
-              </a>
-            </div>
-          </article>
-        `;
-      }).join('');
+              <div class="pt-3 flex items-center justify-between gap-2 text-xs font-mono">
+                <h3 class="font-semibold text-xs sm:text-sm leading-snug">${displayTitle}</h3>
+                <a href="${extUrl}" target="_blank" rel="noopener noreferrer" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] shrink-0">
+                  TikTok ↗
+                </a>
+              </div>
+            </article>
+          `;
+        }).join('');
 
-      fetchTikTokThumbnails(ttVideos);
+        fetchTikTokThumbnails(ttVideos);
+      }
     }
 
     async function fetchTikTokThumbnails(ttVideos) {
@@ -3134,17 +3085,19 @@
 
       const ytBlock = document.getElementById('youtube-section-block');
       const ttBlock = document.getElementById('tiktok-section-block');
-      if (!ytBlock || !ttBlock) return;
-
-      if (category === 'all') {
-        ytBlock.classList.remove('hidden');
-        ttBlock.classList.remove('hidden');
-      } else if (category === 'youtube') {
-        ytBlock.classList.remove('hidden');
-        ttBlock.classList.add('hidden');
-      } else if (category === 'shorts') {
-        ytBlock.classList.add('hidden');
-        ttBlock.classList.remove('hidden');
+      if (ytBlock) {
+        if (!ttBlock || category === 'all' || category === 'youtube') {
+          ytBlock.classList.remove('hidden');
+        } else {
+          ytBlock.classList.add('hidden');
+        }
+      }
+      if (ttBlock) {
+        if (category === 'all' || category === 'shorts') {
+          ttBlock.classList.remove('hidden');
+        } else {
+          ttBlock.classList.add('hidden');
+        }
       }
     }
 
